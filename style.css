@@ -4,23 +4,6 @@
   is enabled and avoids polluting global stylesheet space.
 */
 
-:root {
-  --mobile-icon-color: var(--SmartThemeBodyColor, #e5edf4);
-  --mobile-icon-muted: color-mix(in srgb, var(--mobile-icon-color) 58%, var(--SmartThemeBlurTintColor, rgba(16, 20, 28, 0.92)) 42%);
-  --mobile-text-muted: color-mix(in srgb, var(--mobile-icon-color) 52%, var(--SmartThemeShadowColor, rgba(0, 0, 0, 0.6)) 48%);
-  --mobile-chrome-border: var(--SmartThemeBorderColor, rgba(0, 0, 0, 0.55));
-  --mobile-chrome-border-soft: color-mix(in srgb, var(--mobile-chrome-border) 34%, transparent);
-  --mobile-surface-subtle: color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(16, 20, 28, 0.92)) 68%, transparent);
-  --mobile-surface: color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(16, 20, 28, 0.92)) 82%, transparent);
-  --mobile-surface-raised: color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(16, 20, 28, 0.92)) 88%, var(--mobile-icon-color) 12%);
-  --mobile-surface-overlay: color-mix(in srgb, var(--SmartThemeBlurTintColor, rgba(16, 20, 28, 0.92)) 78%, rgba(0, 0, 0, 0.6) 22%);
-  --mobile-shadow-soft: 0 12px 24px color-mix(in srgb, var(--SmartThemeShadowColor, rgba(0, 0, 0, 0.6)) 55%, transparent);
-  --mobile-shadow-strong: 0 20px 40px color-mix(in srgb, var(--SmartThemeShadowColor, rgba(0, 0, 0, 0.65)) 62%, transparent);
-  --mobile-scroll-thumb: color-mix(in srgb, var(--mobile-chrome-border) 48%, transparent);
-  --mobile-scroll-thumb-hover: color-mix(in srgb, var(--mobile-chrome-border) 60%, transparent);
-  --mobile-accent: color-mix(in srgb, var(--SmartThemeUnderlineColor, #b7f5d8) 70%, var(--mobile-icon-color) 30%);
-}
-
 .sr-only {
   position: absolute !important;
   width: 1px !important;
@@ -34,31 +17,19 @@
   border: 0 !important;
 }
 
-.mobile-quick-layout-setting {
+#mobile-quick-settings .mobile-quick-layout-setting {
   gap: 4px;
   margin-bottom: 12px;
 }
 
-.mobile-quick-layout-setting__hint {
-  color: var(--mobile-text-muted);
-}
-
-.mobile-quick-customization {
+#mobile-quick-customization {
   position: relative;
   margin-top: 10px;
   border-radius: 12px;
-  border: 1px solid var(--mobile-chrome-border-soft);
-  background: var(--mobile-surface);
   overflow: hidden;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.mobile-quick-customization[open] {
-  background: var(--mobile-surface-raised);
-  box-shadow: var(--mobile-shadow-strong);
-}
-
-.mobile-quick-customization__summary {
+#mobile-quick-customization .mobile-quick-customization__summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -69,39 +40,26 @@
   outline: none;
 }
 
-.mobile-quick-customization__summary::-webkit-details-marker {
+#mobile-quick-customization .mobile-quick-customization__summary::-webkit-details-marker {
   display: none;
 }
 
-.mobile-quick-customization__summary:focus-visible {
-  outline: 2px solid var(--mobile-chrome-border);
-  outline-offset: 2px;
-}
-
-.mobile-quick-customization__title {
+#mobile-quick-customization .mobile-quick-customization__title {
   flex: 1 1 auto;
   margin: 0;
   font-size: 14px;
   font-weight: 600;
-  color: var(--mobile-icon-color);
 }
 
-.mobile-quick-customization__chevron {
+#mobile-quick-customization .mobile-quick-customization__chevron {
   position: relative;
   flex: 0 0 auto;
   width: 16px;
   height: 16px;
-  color: var(--mobile-icon-muted);
-  transition: color 0.2s ease;
 }
 
-.mobile-quick-customization__summary:hover .mobile-quick-customization__chevron,
-.mobile-quick-customization[open] .mobile-quick-customization__chevron {
-  color: var(--mobile-accent);
-}
-
-.mobile-quick-customization__chevron::before {
-  content: "";
+#mobile-quick-customization .mobile-quick-customization__chevron::before {
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -113,33 +71,30 @@
   transition: transform 0.25s ease;
 }
 
-.mobile-quick-customization[open] .mobile-quick-customization__chevron::before {
+#mobile-quick-customization[open] .mobile-quick-customization__chevron::before {
   transform: translate(-50%, -40%) rotate(-135deg);
 }
 
-.mobile-quick-customization__content {
+#mobile-quick-customization .mobile-quick-customization__content {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 0 14px 14px;
-  border-top: 1px solid var(--mobile-chrome-border-soft);
-  background: var(--mobile-surface-subtle);
 }
 
-.mobile-quick-customization__hint {
+#mobile-quick-customization .mobile-quick-customization__hint {
   margin: 6px 0 0;
   font-size: 12px;
   line-height: 1.4;
-  color: var(--mobile-text-muted);
 }
 
-.mobile-quick-customization__list {
+#mobile-quick-customization .mobile-quick-customization__list {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.mobile-quick-customization__item {
+#mobile-quick-customization .mobile-quick-customization__item {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -147,105 +102,69 @@
   padding: 6px 0;
 }
 
-.mobile-quick-customization__label {
+#mobile-quick-customization .mobile-quick-customization__label {
   flex: 1 1 auto;
   font-size: 13px;
-  color: var(--mobile-text-muted);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.mobile-quick-customization__select {
+#mobile-quick-customization .mobile-quick-customization__select {
   flex: 0 0 150px;
   padding: 6px 10px;
   border-radius: 10px;
-  border: 1px solid var(--mobile-chrome-border-soft);
-  background: var(--mobile-surface-subtle);
-  color: var(--mobile-icon-color);
 }
 
-.mobile-quick-customization__select:focus {
-  outline: 2px solid var(--mobile-chrome-border);
-  outline-offset: 1px;
-}
-
-.mobile-quick-customization__reset {
+#mobile-quick-customization .mobile-quick-customization__reset {
   align-self: flex-end;
   padding: 6px 12px;
   border-radius: 10px;
-  border: 1px solid var(--mobile-chrome-border-soft);
-  background: var(--mobile-surface-subtle);
-  color: var(--mobile-icon-color);
   cursor: pointer;
   font-size: 12px;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
 }
 
-.mobile-quick-customization__reset:hover,
-.mobile-quick-customization__reset:focus-visible {
-  border-color: var(--mobile-chrome-border);
-  background: var(--mobile-surface-raised);
-  color: var(--mobile-icon-color);
-  outline: none;
-}
-
-.mobile-quick-customization__reset:disabled {
+#mobile-quick-customization .mobile-quick-customization__reset:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.mobile-quick-mode-message {
+#mobile-quick-settings .mobile-quick-mode-message {
   margin: 0 0 8px;
   padding: 12px 16px;
   border-radius: 14px;
-  background: var(--mobile-surface-overlay);
-  color: var(--mobile-text-muted);
   font-size: 14px;
   text-align: center;
   line-height: 1.4;
 }
 
-.mobile-quick-mode-controls {
+#mobile-quick-settings .mobile-quick-mode-controls {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
 }
 
-.mobile-layout-toggle-button {
+#mobile-quick-settings .mobile-layout-toggle-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 16px;
   border-radius: 14px;
-  border: 1px solid var(--mobile-chrome-border-soft);
-  background: var(--mobile-surface-raised);
-  color: var(--mobile-icon-color);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
-    transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
-.mobile-layout-toggle-button:hover,
-.mobile-layout-toggle-button:focus-visible {
-  color: var(--mobile-icon-color);
-  border-color: var(--mobile-chrome-border);
-  background: var(--mobile-surface);
-  transform: translateY(-1px);
-  outline: none;
-}
-
-.mobile-layout-toggle-button:active {
+#mobile-quick-settings .mobile-layout-toggle-button:active {
   transform: translateY(0);
 }
 
-.mobile-quick-toggle,
-.mobile-quick-panel,
-.mobile-quick-primary,
-.mobile-quick-primary-wrap {
+html[data-mobile-quick-layout] .mobile-quick-toggle,
+html[data-mobile-quick-layout] .mobile-quick-panel,
+html[data-mobile-quick-layout] .mobile-quick-primary,
+html[data-mobile-quick-layout] .mobile-quick-primary-wrap {
   display: none;
 }
 
@@ -254,11 +173,11 @@
 }
 
 @media (max-width: 1024px) {
-  :root[data-mobile-quick-layout="enhanced"] #top-bar {
+  html[data-mobile-quick-layout='enhanced'] #top-bar {
     display: none;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder {
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder {
     position: relative !important;
     top: auto !important;
     left: auto !important;
@@ -266,9 +185,6 @@
     height: auto !important;
     padding: 0 !important;
     margin: 0 !important;
-    background: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -276,41 +192,38 @@
     z-index: 95;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #sheld {
-    top: calc(var(--mobile-quick-primary-height, 0px)) !important;
+  html[data-mobile-quick-layout='enhanced'] #sheld {
+    top: 0 !important;
     padding-top: 0 !important;
-    height: calc(100vh - var(--mobile-quick-primary-height, 0px)) !important;
+    height: 100vh !important;
     max-height: -webkit-fill-available !important;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-primary-wrap {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-primary-wrap {
     position: sticky;
     top: 0;
     z-index: 96;
     display: flex;
     justify-content: center;
     padding: calc(env(safe-area-inset-top, 0px) + 10px) clamp(16px, 5vw, 26px) 12px;
-    background: var(--mobile-surface-raised);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--mobile-chrome-border-soft);
     width: 100%;
     box-sizing: border-box;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #send_form {
+  html[data-mobile-quick-layout='enhanced'] #send_form {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #leftSendForm {
+  html[data-mobile-quick-layout='enhanced'] #leftSendForm {
     display: inline-flex;
     align-items: center;
     flex-wrap: nowrap;
     gap: 10px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -318,32 +231,17 @@
     min-width: 44px;
     min-height: 44px;
     padding: 0 12px;
-    border: 1px solid transparent;
     border-radius: 14px;
-    background: var(--mobile-surface-subtle);
-    color: var(--mobile-icon-muted);
     font-size: 14px;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease,
-      border-color 0.2s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle .fa-solid {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-toggle .fa-solid {
     font-size: 20px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle:hover,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle:focus-visible,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle.is-active,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-toggle[aria-expanded="true"] {
-    background: var(--mobile-surface);
-    color: var(--mobile-icon-color);
-    border-color: var(--mobile-chrome-border);
-    transform: translateY(-1px);
-    outline: none;
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-primary {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-primary {
     display: inline-flex;
     align-items: center;
     justify-content: space-evenly;
@@ -352,15 +250,12 @@
     width: 100%;
     padding: 8px clamp(16px, 5vw, 24px);
     margin: 0;
-    background: var(--mobile-surface);
     border-radius: 18px;
-    border: 1px solid var(--mobile-chrome-border-soft);
-    box-shadow: var(--mobile-shadow-soft);
     overflow: visible;
     box-sizing: border-box;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-button {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-button {
     flex: 0 0 26px;
     width: 26px;
     height: 26px;
@@ -368,58 +263,42 @@
     align-items: center;
     justify-content: center;
     border-radius: 9px;
-    border: 1px solid transparent;
-    background: var(--mobile-surface-subtle);
-    color: var(--mobile-icon-muted);
     font-size: 15px;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease,
-      background 0.2s ease, transform 0.2s ease;
+    transition: transform 0.2s ease;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-button .fa-solid {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-button .fa-solid {
     font-size: 16px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-button .mobile-quick-label {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-button .mobile-quick-label {
     display: none;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-button:hover,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-button:focus-visible {
-    color: var(--mobile-icon-color);
-    background: var(--mobile-surface);
-    transform: translateY(-1px);
-    outline: none;
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] .mobile-layout-toggle-button:active {
+  html[data-mobile-quick-layout='enhanced'] .mobile-layout-toggle-button:active {
     transform: translateY(0);
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #send_form {
+  html[data-mobile-quick-layout='enhanced'] #send_form {
     position: relative;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel {
     order: 3;
     display: block;
     width: 100%;
     border-radius: 18px;
-    background: var(--mobile-surface-overlay);
-    border: 1px solid var(--mobile-chrome-border-soft);
-    box-shadow: var(--mobile-shadow-strong);
     max-height: 0;
     opacity: 0;
     pointer-events: none;
     overflow: hidden;
     padding: 0 clamp(16px, 5vw, 26px);
     margin: 0;
-    transition: max-height 0.24s ease, opacity 0.22s ease, padding 0.18s ease,
-      margin 0.18s ease;
+    transition: max-height 0.24s ease, opacity 0.22s ease, padding 0.18s ease, margin 0.18s ease;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel.is-open {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel.is-open {
     max-height: 140px;
     opacity: 1;
     pointer-events: auto;
@@ -427,11 +306,11 @@
     padding: 12px clamp(16px, 5vw, 26px);
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #mobile-quick-panel:focus {
+  html[data-mobile-quick-layout='enhanced'] #mobile-quick-panel:focus {
     outline: none;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel__buttons {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel__buttons {
     display: flex;
     flex-wrap: nowrap;
     align-items: stretch;
@@ -443,28 +322,24 @@
     margin: 0;
     scroll-snap-type: x proximity;
     scrollbar-width: thin;
-    scrollbar-color: var(--mobile-scroll-thumb) transparent;
     -webkit-overflow-scrolling: touch;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel__buttons::-webkit-scrollbar {
-    height: 6px;
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px clamp(16px, 5vw, 22px) 6px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel__buttons::-webkit-scrollbar-thumb {
-    background: var(--mobile-scroll-thumb);
-    border-radius: 999px;
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel__actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel__buttons::-webkit-scrollbar-thumb:hover {
-    background: var(--mobile-scroll-thumb-hover);
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel__buttons::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel-button {
     flex: 0 0 auto;
     width: 52px;
     min-width: 52px;
@@ -476,79 +351,60 @@
     padding: 0;
     border-radius: 16px;
     border: 1px solid transparent;
-    background: var(--mobile-surface-subtle);
-    color: var(--mobile-icon-muted);
     font-size: 15px;
     cursor: pointer;
-    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease,
-      transform 0.2s ease;
+    transition: transform 0.2s ease;
     white-space: nowrap;
     scroll-snap-align: start;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button .fa-solid {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel-button .fa-solid {
     font-size: 20px;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button:hover,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button:focus-visible {
-    color: var(--mobile-icon-color);
-    border-color: var(--mobile-chrome-border);
-    background: var(--mobile-surface);
-    transform: translateY(-1px);
-    outline: none;
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button.mobile-layout-toggle-button {
+  html[data-mobile-quick-layout='enhanced'] .mobile-quick-panel-button.mobile-layout-toggle-button {
     flex: 1 1 160px;
     min-width: 160px;
     height: auto;
     padding: 10px 18px;
     gap: 8px;
-    border: 1px solid var(--mobile-chrome-border-soft);
-    background: var(--mobile-surface-raised);
+    border: 1px solid transparent;
     font-weight: 500;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button.mobile-layout-toggle-button:hover,
-  :root[data-mobile-quick-layout="enhanced"] .mobile-quick-panel-button.mobile-layout-toggle-button:focus-visible {
-    color: var(--mobile-icon-color);
-    border-color: var(--mobile-chrome-border);
-    background: var(--mobile-surface);
-  }
-
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder::before,
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder::after {
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder::before,
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder::after {
     display: none !important;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder .drawer-toggle,
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder .drawer-header {
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder .drawer-toggle,
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder .drawer-header {
     display: none !important;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder .drawer {
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder .drawer {
     width: min(100%, 520px) !important;
     margin: 4px auto 0 !important;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] #top-settings-holder .drawer-content {
-    top: calc(var(--mobile-quick-primary-height, 0px)) !important;
-    max-height: calc(var(--mobile-drawer-max-height, 70vh));
-    height: calc(100vh - var(--mobile-quick-primary-height, 0px)) !important;
+  html[data-mobile-quick-layout='enhanced'] #top-settings-holder .drawer-content {
+    top: 0 !important;
+    max-height: 70vh;
+    height: 100vh !important;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   }
 
-  :root[data-mobile-quick-layout="enhanced"] .chat {
+  html[data-mobile-quick-layout='enhanced'] .chat {
     padding-bottom: calc(88px + env(safe-area-inset-bottom, 12px));
   }
 
-  :root[data-mobile-quick-layout="classic"] .mobile-quick-toggle {
+  html[data-mobile-quick-layout='classic'] .mobile-quick-toggle {
     display: none !important;
   }
 
-  :root[data-mobile-quick-layout="classic"] #mobile-quick-panel {
+  html[data-mobile-quick-layout='classic'] #mobile-quick-panel {
     display: none !important;
   }
 }
+
